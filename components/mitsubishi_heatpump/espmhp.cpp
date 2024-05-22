@@ -417,6 +417,11 @@ void MitsubishiHeatPump::set_vane_position(std::string position) {
     this->hp->update();
 }
 
+std::string MitsubishiHeatPump::get_vane_position() {
+    return std::string(this->hp->getVaneSetting());
+}
+
+
 void MitsubishiHeatPump::setup() {
     // This will be called by App.setup()
     this->banner();
