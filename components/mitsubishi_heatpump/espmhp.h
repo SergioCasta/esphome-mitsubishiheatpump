@@ -19,7 +19,7 @@
 
 #include "esphome.h"
 #include "esphome/core/preferences.h"
-
+#include <string>
 #include "HeatPump.h"
 using namespace esphome;
 
@@ -96,6 +96,9 @@ class MitsubishiHeatPump : public PollingComponent, public climate::Climate {
         // Use the temperature from an external sensor. Use
         // set_remote_temp(0) to switch back to the internal sensor.
         void set_remote_temperature(float);
+
+        // Sets a fixed vane position.  The swing will be set as disabled.        
+        void set_vane_position(std::string);
 
     protected:
         // HeatPump object using the underlying Arduino library.

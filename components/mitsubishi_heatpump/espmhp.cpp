@@ -313,7 +313,7 @@ void MitsubishiHeatPump::hpSettingsChanged() {
     /*
      * ******* HANDLE FAN CHANGES ********
      *
-     * const char* FAN_MAP[6]         = {"AUTO", "QUIET", "1", "2", "3", "4"};
+     * const char* FAN_MAP[6]         = {"AUTO", "QUIET", "1", "2", "3",  "4"};
      */
     if (strcmp(currentSettings.fan, "QUIET") == 0) {
         this->fan_mode = climate::CLIMATE_FAN_DIFFUSE;
@@ -409,6 +409,11 @@ void MitsubishiHeatPump::hpStatusChanged(heatpumpStatus currentStatus) {
 void MitsubishiHeatPump::set_remote_temperature(float temp) {
     ESP_LOGD(TAG, "Setting remote temp: %.1f", temp);
     this->hp->setRemoteTemperature(temp);
+}
+
+void MitsubishiHeatPump::set_vane_position(std::string position) {
+    ESP_LOGD(TAG, "Setting vane position: %s", position.c_str());
+    this->hp->setVaneSetting(position.c_str());
 }
 
 void MitsubishiHeatPump::setup() {
