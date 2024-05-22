@@ -116,6 +116,9 @@ class MitsubishiHeatPump : public esphome::PollingComponent, public esphome::cli
         // temperature sensor if a ping isn't received from the controller.
         void set_remote_ping_timeout_minutes(int);
 
+        // Sets a fixed vane position. The swing will be set as disabled.        
+        void set_vane_position(int);
+
     protected:
         // HeatPump object using the underlying Arduino library.
         HeatPump* hp;

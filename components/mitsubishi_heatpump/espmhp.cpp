@@ -504,6 +504,11 @@ void MitsubishiHeatPump::enforce_remote_temperature_sensor_timeout() {
     }
 }
 
+void MitsubishiHeatPump::set_vane_position(int position) {
+    ESP_LOGD(TAG, "Setting vane position: %d", position);
+    this->hp->setVaneSetting(itoa(position));
+}
+
 void MitsubishiHeatPump::setup() {
     // This will be called by App.setup()
     this->banner();
