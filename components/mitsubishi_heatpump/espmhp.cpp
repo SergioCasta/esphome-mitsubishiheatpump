@@ -414,6 +414,7 @@ void MitsubishiHeatPump::set_remote_temperature(float temp) {
 void MitsubishiHeatPump::set_vane_position(std::string position) {
     ESP_LOGD(TAG, "Setting vane position: %s", position.c_str());
     this->hp->setVaneSetting(position.c_str());
+    this->hp->update();
 }
 
 void MitsubishiHeatPump::setup() {
